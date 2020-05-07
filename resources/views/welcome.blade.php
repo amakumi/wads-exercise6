@@ -18,6 +18,10 @@
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+                background-color:#ffff89;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-image: url('https://www.onlygfx.com/wp-content/uploads/2018/08/9-watercolor-holographic-effect-background-4-1024x718.jpg');
             }
 
             .full-height {

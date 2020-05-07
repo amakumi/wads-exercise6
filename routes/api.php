@@ -15,7 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('register', 'API\RegisterController@register');
+Route::post('login','API\RegisterController@login');
 
+Route::post('events/create', 'API\EventController@create');
+Route::post('events/update', 'API\EventController@update');
+Route::get('events/showAll', 'API\EventController@index');
+Route::get('events/show/{id}', 'API\EventController@show');
+Route::post('events/update/{id}', 'API\EventController@update');
+Route::get('events/delete/{id}', 'API\EventController@destroy');
+Route::post('events/uploadImage/{id}', 'API\EventController@sendImage');
 
 Route::middleware('auth:api')->get('/user', function (Request $request)
 {
