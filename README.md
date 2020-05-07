@@ -1,1 +1,0 @@
-# wads-exercise6
