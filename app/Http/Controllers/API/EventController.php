@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Event;
+use App\Events;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ class EventController extends BaseController
 {
     public function index()
     {
-        $events = Event::all();
+        $events = Events::all();
         return $this->sendResponse($events->toArray(), 'Events retrieved successfully!');
     }
 
@@ -36,14 +36,14 @@ class EventController extends BaseController
             return $this->sendError('Validation Error. You are not allowed to enter!', $validator->errors());
         }
 
-        $event = Event::create($input);
+        $event = Events::create($input);
 
         return $this->sendResponse($event->toArray(), 'Yay. Event Created!');
     }
 
     public function show($id)
     {
-        $event = Event::find($id);
+        $event = Events::find($id);
 
         if(is_null($event))
         {
@@ -72,7 +72,7 @@ class EventController extends BaseController
             return $this->sendError('Incomplete information', $validator->errors());
         }
 
-        $event = Event::find($id);
+        $event = Events::find($id);
 
         if(is_null($event))
         {
@@ -92,7 +92,7 @@ class EventController extends BaseController
 
     public function destroy($id)
     {
-        $event = Event::find($id);
+        $event = Events::find($id);
 
         if(is_null($event))
         {
@@ -105,7 +105,7 @@ class EventController extends BaseController
         }
         catch (\Exception $e)
         {
-            //
+            return $this->sendError('What happened?');
         }
 
         return $this->sendResponse($event->toArray(), 'Sad to see you go. Event deleted.');

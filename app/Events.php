@@ -11,7 +11,8 @@ class Events extends Model
      *
      * @var array
      */
-    protected $fillable=[
+    protected $fillable=
+    [
         'eventOrganizer',
         'eventName',
         'startDate',

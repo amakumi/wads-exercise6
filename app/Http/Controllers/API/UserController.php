@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\API;
+
 use Illuminate\Http\Request; 
 use App\Http\Controllers\Controller; 
 use App\User; 
@@ -24,7 +25,8 @@ class UserController extends Controller
                 $success['token'] =  $user->createToken('MyApp')-> accessToken; 
                 return response()->json(['success' => $success], $this-> successStatus); 
             } 
-            else{ 
+            else
+            { 
                 return response()->json(['error'=>'Unauthorised'], 401); 
             } 
         }
@@ -62,7 +64,7 @@ class UserController extends Controller
          * 
          * @return \Illuminate\Http\Response 
          */ 
-        
+
         public function details() 
         { 
             $user = Auth::user(); 
