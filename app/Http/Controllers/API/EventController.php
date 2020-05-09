@@ -27,6 +27,7 @@ class EventController extends BaseController
             'startDate' => 'required',
             'endDate' => 'required',
             'eventDescription' => 'required',
+            'eventVenue' => 'required',
             'email' => 'required',
             'phone' => 'required'
         ]);
@@ -63,6 +64,7 @@ class EventController extends BaseController
             'startDate' => 'required',
             'endDate' => 'required',
             'eventDescription' => 'required',
+            'eventVenue' => 'required',
             'email' => 'required',
             'phone' => 'required'
         ]);
@@ -84,6 +86,7 @@ class EventController extends BaseController
         $event->startDate =$input['startDate'];
         $event->endDate =$input['endDate'];
         $event->eventDescription =$input['eventDescription'];
+        $event->eventVenue =$input['eventVenue'];
         $event->email =$input['email'];
         $event->phone =$input['phone'];
         $event->save();

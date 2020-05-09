@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Auth::routes();
+
 Route::post('register', 'API\RegisterController@register');
 Route::post('login','API\RegisterController@login');
 

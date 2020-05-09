@@ -18,6 +18,7 @@ class Events extends Model
         'startDate',
         'endDate',
         'eventDescription',
+        'eventVenue',
         'email',
         'phone'
     ];
