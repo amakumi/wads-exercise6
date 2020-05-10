@@ -39,11 +39,11 @@ class RegisterController extends BaseController
         {
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')-> accessToken;
-            return response()->json(['success' => $success], 200);
+            return response()->json(['Success, Welcome back.' => $success], 200);
         }
         else
         {
-            return response()->json(['error'=>'Unauthorised'], 401);
+            return response()->json(['Error'=>'Unauthorised'], 401);
         }
     }
 }

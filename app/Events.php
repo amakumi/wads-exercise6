@@ -20,6 +20,7 @@ class Events extends Model
         'eventDescription',
         'eventVenue',
         'email',
-        'phone'
+        'phone',
+        'image',
     ];
 }

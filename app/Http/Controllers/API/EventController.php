@@ -29,13 +29,20 @@ class EventController extends BaseController
             'eventDescription' => 'required',
             'eventVenue' => 'required',
             'email' => 'required',
-            'phone' => 'required'
+            'phone' => 'required',
+            'image' => 'required',
         ]);
 
         if($validator->fails())
         {
-            return $this->sendError('Validation Error. You are not allowed to enter!', $validator->errors());
+            return $this->sendError('Event Creation Failed. Missing information!', $validator->errors());
         }
+
+        $filename = $input['eventName'].'_Official_Poster_by_'.$input['eventOrganizer'].'.jpg';
+        $path = $request->file('image')->move(public_path('/event_poster'), $filename);
+        $imageURL = url('/event_poster/'.$filename);
+
+        $input['image'] = urlencode($imageURL);
 
         $event = Events::create($input);
 
@@ -66,7 +73,8 @@ class EventController extends BaseController
             'eventDescription' => 'required',
             'eventVenue' => 'required',
             'email' => 'required',
-            'phone' => 'required'
+            'phone' => 'required',
+            'image' => 'required'
         ]);
 
         if($validator->fails())
@@ -89,6 +97,7 @@ class EventController extends BaseController
         $event->eventVenue =$input['eventVenue'];
         $event->email =$input['email'];
         $event->phone =$input['phone'];
+        //$event->image =$input['image'];
         $event->save();
         return $this->sendResponse($event->toArray(), 'Event has been updated');
     }
